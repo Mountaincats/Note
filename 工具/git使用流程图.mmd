@@ -1,0 +1,16 @@
+flowchart TD
+    A[写代码前] --> B[git checkout develop]
+    B --> C[git pull]
+    C --> D[git checkout feature/xxx]
+    D --> E[git merge develop --no-ff,并处理可能的冲突]
+    E --> F[写代码/加文件]
+    F -->|一次提交中改动文件尽量不超过3个,代码改动行数尽量不超过50,改动的代码区域尽量不要太分散| G[git add .]
+    G --> H[git commit 并填写详细提交信息]
+    H --> I[git checkout develop]
+    I --> J[git merge feature/xxx]
+    J --> K[git push]
+    K --> L[如果报错]
+    L --> error[error: failed to push some refs to 'github.com:Mountaincats/tgit.git'hint: Updates were rejected because the remote contains work that you do not have locally. This is usually caused by another repository pushing to the same ref. You may want to first integrate the remote changes before pushing again. See the 'Note about fast-forwards' in 'git push --help' for details.]
+    L --> M[git pull --no-rebase]
+    M --> K
+    K -->|git push 操作成功| A
