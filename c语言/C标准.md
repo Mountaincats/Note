@@ -16,12 +16,12 @@
    * 位置：`/usr/lib/`, `/lib/`等目录
    * 作用：包含函数的具体实现代码
    * 分类：
-        * libc：核心C库（包含大部分标准函数）
-            静态库：`libc.a`
-            动态库：`libc.so`（Linux）、`msvcrt.dll`（Windows）
-        * libm：数学库（需要单独链接）
-        * 其他：`libpthread`（线程库）等
-    * 文件类型：`.a` / `.so` / `.dll`
+      * libc：核心C库（包含大部分标准函数）
+          静态库：`libc.a`
+          动态库：`libc.so`（Linux）、`msvcrt.dll`（Windows）
+      * libm：数学库（需要单独链接）
+      * 其他：`libpthread`（线程库）等
+  * 文件类型：`.a` / `.so` / `.dll`
 ```
 C标准库 (C Standard Library)
 ├── 接口声明层(声明)（标准头文件，如 stdio.h、stdlib.h、math.h）
