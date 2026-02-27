@@ -24,6 +24,12 @@ git remote rm <name>
 # 删除关联
 ```
 
-5.
-
+5. `git log`
+* --graph 
+* --all 
+* --oneline 
+* --not <branch name> <branch name> ...
+* -n <num> 显示最近<num>条记录
+* --since="<2024-01-01>"
+* --author="<author name>"
 

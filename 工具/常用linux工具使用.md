@@ -228,6 +228,13 @@
       ln -s /mnt/shared ~/Desktop/shared_disk
       #第一个是目标文件/文件夹，第二个是快捷方式的位置
       ```
+
+7. **`ping`**
+   - **作用** 
+   - **示例**
+      ```bash
+      ping www.baidu.com -c 4
+      ```
 ---
 
 ### 七、高效组合案例 查看当前工作目录路径

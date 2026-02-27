@@ -13,6 +13,7 @@
   * `help <类别>`查看类别下对应的可用命令
   * `help <命令>`查看命令的详细文档
 * `start`开始或重新调试
+* `starti`从第一条机器指令开始执行
 * `quit(q)`退出调试
 * `list(l)`
   * `list <数字n>`从第n行开始读出10行源码，后面再使用`list`时会从上次读出的最后一行源码开始再读出10行
@@ -50,6 +51,7 @@ cgdb ./<program>
 
 * `next(n)`执行下一条语句，不进入函数
 * `step(s)`进入函数执行下一条语句
+* `stepi(si)`执行下一条机器指令
 * `finish`让程序一直运行到从当前函数返回为止
 * `continue(c)`执行直到下一个断点或观察点为止
 * `run(r)`重新开始并连续运行程序
@@ -79,7 +81,7 @@ cgdb ./<program>
   * `b <行号>`在对应行设置断点
   * `b <函数名>`在函数开头设置断点
   * `b <> if 条件`条件断点
-  * `delete breakpoints <断点号>`
+  * `delete(d) breakpoints <断点号>`
   * `disable breakpoints <断点号>`禁用断点
   * `enable <断点号>`启用断点
 * `tbreak <行号>`临时断点
@@ -97,6 +99,7 @@ cgdb ./<program>
 ---
 
 ### 二、.gdbinit配置文件
+1. 示例：
 ```
 // 本质是提前制定启动 gdb 后要执行的命令
 
@@ -113,6 +116,29 @@ tui enable
 layout src
 set pagination off
 ```
+
+2. 启用.gdbinit
+* **全局设置：**在home目录下加入.gdbinit文件，这时配置全局生效
+* **局部设置：**
+* gdb安全设置
+  * 示例报错：
+  ```
+  warning: File "/home/mountaincat/ysyx-workbench/nemu/.gdbinit" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+  To enable execution of this file add
+  	add-auto-load-safe-path /home/mountaincat/ysyx-workbench/nemu/.gdbinit
+  line to your configuration file "/home/mountaincat/.config/gdb/gdbinit".
+  To completely disable this security protection add
+  	set auto-load safe-path /
+  line to your configuration file "/home/mountaincat/.config/gdb/gdbinit".
+  ```
+  * 关键在编辑/home/mountaincat/.config/gdb/gdbinit文件
+    * 完全关闭安全保护：set auto-load safe-path /
+    * 仅加载信任的.gdbinit：add-auto-load-safe-path /home/mountaincat/ysyx-workbench/nemu/.gdbinit
+  * 配置命令：
+  ```
+  mkdir -p ~/.config/gdb
+  echo "add-auto-load-safe-path /home/mountaincat/ysyx-workbench/nemu/.gdbinit" >> ~/.config/gdb/gdbinit
+  ```
 
 ---
 
