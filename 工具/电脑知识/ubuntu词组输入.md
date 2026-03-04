@@ -1,0 +1,1 @@
+设置->keyboard->input sources->Chinese的右边选项->preferences->Details->Compose->选phrase
