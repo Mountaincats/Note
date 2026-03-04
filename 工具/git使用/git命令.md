@@ -25,11 +25,13 @@ git remote rm <name>
 ```
 
 5. `git log`
-* --graph 
-* --all 
-* --oneline 
-* --not <branch name> <branch name> ...
-* -n <num> 显示最近<num>条记录
-* --since="<2024-01-01>"
-* --author="<author name>"
+* 可在`.bashre`中设置别名`alias gitlog="git log --graph --all"`
+* 参数：
+  * --graph 
+  * --all 
+  * --oneline 
+  * --not <branch name> <branch name> ...
+  * -n <num> 显示最近<num>条记录
+  * --since="<2024-01-01>"
+  * --author="<author name>"
 
