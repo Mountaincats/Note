@@ -44,3 +44,6 @@ git remote set-url origin <新地址>
   * --since="<2024-01-01>"
   * --author="<author name>"
 
+6. 修改提交记录
+* 修改提交信息
+  * 最近一次: `git commit --amend` or `git commit --amend -m "新的提交信息"`
